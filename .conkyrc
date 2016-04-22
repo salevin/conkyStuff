@@ -1,0 +1,23 @@
+double_buffer yes
+own_window_class Conky
+own_window yes
+own_window_type panel
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_argb_visual yes
+draw_borders no
+draw_graph_borders no
+border_margin 3
+draw_shades yes
+gap_x 5
+gap_y 5
+alignment bottom_left
+update_interval 1
+default_color  ffffff
+own_window_colour 031224
+use_xft yes
+xftfont sans regular:size=8
+override_utf8_locale yes
+use_spacer none
+minimum_size 1366 0
+TEXT
+${goto 5}Date: ${color 5792FF}${font sans:size=8}${time %m/%d/%y}${color}${font}  Time: ${color 5792FF}${font sans:size=8}${time %H:%M}${color}${font}  |  Kernel: ${color 5792FF}${font sans:size=8}$kernel${color}${font}  Uptime: ${color 5792FF}${font sans:size=8}${uptime_short}${color}${font}  |  Battery:${color 5792FF} ${if_match ${battery_percent BAT0}<=15}${color FF3333} ${endif} ${battery_percent BAT0}% ${if_match "$battery_short BAT0" <= "D"}${color FFFF00}⚡${endif}${color}${font}  |  Cpu: ${color 5792FF}${font sans:size=8}${cpu}%${color}${font}  Ram: ${color 5792FF}${font sans:size=8}${memperc}%${color}${font}  Swap: ${color 5792FF}${font sans:size=8}${swapperc}%${color}${font}  |  ${color}${font}Ssd:${color 5792FF}${font sans:size=8} ${fs_used_perc /}% ${fs_used /} / ${fs_size /}  ${color}${font} |  Local ip: ${color 5792FF}${font sans:size=8}${addr wlp2s0}${font}${color}  Global ip: ${color 5792FF}${font sans:size=8}${execi 20 wget http://ipinfo.io/ip -qO - | tail}${font}${color}  |  VPN: ${color 5792FF}${if_up tun0}Up${color FF1A1A} ☭${color}${else}Down${endif}${color} | ${color} ${if_existing /proc/net/route enp1s0}Network: ${color 82BA00}Up :${color} ${color 5792FF}${upspeed enp1s0}/s${color}  ${color 82BA00}Down :${color} ${color 5792FF}${downspeed enp1s0}/s${color} ${color 82BA00}Total :${color} ${color 5792FF}${totaldown enp1s0}${color}${else}${if_existing /proc/net/route wlp2s0}${color 82BA00}${font sans:size=8}Up :${color}${font} ${color 5792FF}${upspeed wlp2s0}/s${color}  ${color 82BA00}${font sans:size=8}Down :${color}${font} ${color 5792FF}${downspeed wlp2s0}/s${color} ${color 82BA00}${font sans:size=8}Total down :${color}${font} ${color 5792FF}${totaldown wlp2s0}${color}${else}Network Unavailable${endif}${endif}${alignr} ${color E600E5}=^.^=    
